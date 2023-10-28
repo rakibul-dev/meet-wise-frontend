@@ -16,12 +16,13 @@ let darkTheme = createTheme({
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
   },
   palette: {
-    // mode: "dark",
     background: {
-      default: "#f6f9fcff",
+      default: "#0c0a09",
     },
     primary: {
-      main: "#d23f57ff",
+      main: "#e11d48",
+      success: "green",
+      danger: "red",
     },
   },
   // shadows: ["none"],
