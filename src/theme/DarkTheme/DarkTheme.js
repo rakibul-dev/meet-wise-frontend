@@ -20,7 +20,7 @@ let darkTheme = createTheme({
       default: "#0c0a09",
     },
     primary: {
-      main: "#e11d48",
+      main: "#35155d",
       success: "green",
       danger: "red",
     },
