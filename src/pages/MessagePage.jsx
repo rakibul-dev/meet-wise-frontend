@@ -1,19 +1,15 @@
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Grid,
-  IconButton,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import Appbar from "../components/Appbar/Appbar";
 import SideMenubar from "../components/SideMenubar/SideMenubar";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import ChatBoxNavbar from "../components/ChatBoxNavbar/ChatBoxNavbar";
+import { Scrollbars } from "react-custom-scrollbars";
 
 import ScrollArea from "react-scrollbar";
+import Message from "../components/Messages/Message";
+import Conversation from "../components/Conversation/Conversation";
+import ConversationSearchBox from "../components/ConversationSearchBox/ConversationSearchBox";
+import SendMessage from "../components/SendMessage/SendMessage";
 const MessagePage = () => {
   return (
     <div>
@@ -32,9 +28,35 @@ const MessagePage = () => {
               sx={{
                 backgroundColor: "#512B81",
                 height: "100vh",
+                // overflowX: "scroll",
               }}
             >
-              {/* <Appbar /> */}
+              <ConversationSearchBox />
+              <Scrollbars
+                style={{ height: "89%", borderBottom: "none" }}
+                autoHide
+                autoHideTimeout={1000}
+                autoHideDuration={200}
+                // autoHeight
+                // autoHeightMin={0}
+                // autoHeightMax={200}
+                thumbMinSize={30}
+                universal={true}
+                noDefaultStyles
+                disableTracksWidthCompensation
+              >
+                <Conversation />
+                <Conversation />
+                <Conversation /> <Conversation />
+                <Conversation />
+                <Conversation /> <Conversation />
+                <Conversation />
+                <Conversation /> <Conversation />
+                <Conversation />
+                <Conversation /> <Conversation />
+                <Conversation />
+                <Conversation />
+              </Scrollbars>
             </Box>
           </Grid>
           <Grid item md={6} height="100%" width="100%">
@@ -52,83 +74,26 @@ const MessagePage = () => {
                 contentClassName="content"
                 horizontal={false}
               >
-                <div
+                <Box
                   style={{
-                    backgroundColor: "gray",
+                    // backgroundColor: "gray",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-end",
                     justifyContent: "flex-end",
+                    paddingTop: "100px",
+                    paddingBottom: "10px",
+                    paddingRight: "15px",
+                    paddingLeft: "15px",
                   }}
+                  gap={2}
                 >
-                  <Box
-                    sx={{
-                      marginRight: "auto",
-                      maxWidth: "60%",
-                      backgroundColor: "white",
-                    }}
-                  >
-                    <Typography variant="p">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Veniam neque vel temporibus totam sequi fugiat eum sit,
-                      hic impedit beatae laboriosam quo, similique harum odit
-                      explicabo dolorum aliquid provident porro?
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                    <Box
-                      sx={{
-                        marginLeft: "auto",
-                        maxWidth: "60%",
-                        backgroundColor: "white",
-                      }}
-                    >
-                      <Typography variant="p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Veniam neque vel temporibus totam sequi fugiat eum sit,
-                        hic impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Veniam
-                        neque vel temporibus totam sequi fugiat eum sit, hic
-                        impedit beatae laboriosam quo, similique harum odit
-                        explicabo dolorum aliquid provident porro?
-                      </Typography>
-                    </Box>
-                    <Avatar />
-                  </Box>
-                </div>
+                  <Message sender={false} />
+                  <Message sender={true} />
+                </Box>
               </ScrollArea>
-
-              <Appbar />
+              <SendMessage />
             </Stack>
           </Grid>
           <Grid item md={2.3}>
