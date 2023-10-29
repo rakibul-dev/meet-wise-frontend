@@ -21,7 +21,7 @@ let lightTheme = createTheme({
       default: "#f6f9fcff",
     },
     primary: {
-      main: "#d23f57ff",
+      main: "#35155d",
     },
   },
   // shadows: ["none"],
