@@ -3,10 +3,18 @@
 import { Box, Typography, Avatar } from "@mui/material";
 
 const Message = (props) => {
+  console.log(props);
   return (
     <div>
       {props.sender ? (
-        <Box sx={{ display: "flex", alignItems: "flex-end" }} gap={2}>
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            alignItems: "flex-end",
+          }}
+          gap={2}
+        >
           <Box
             sx={{
               marginLeft: "auto",
@@ -17,36 +25,7 @@ const Message = (props) => {
             }}
           >
             <Typography variant="p" color="white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
+              {props.message.message}
             </Typography>
           </Box>
           <Avatar />
@@ -63,38 +42,7 @@ const Message = (props) => {
               borderRadius: "10px",
             }}
           >
-            <Typography variant="p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              neque vel temporibus totam sequi fugiat eum sit, hic impedit
-              beatae laboriosam quo, similique harum odit explicabo dolorum
-              aliquid provident porro? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Veniam neque vel temporibus totam sequi fugiat
-              eum sit, hic impedit beatae laboriosam quo, similique harum odit
-              explicabo dolorum aliquid provident porro? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Veniam neque vel temporibus
-              totam sequi fugiat eum sit, hic impedit beatae laboriosam quo,
-              similique harum odit explicabo dolorum aliquid provident porro?
-            </Typography>
+            <Typography variant="p">{props.message.message} </Typography>
           </Box>
         </Box>
       )}
