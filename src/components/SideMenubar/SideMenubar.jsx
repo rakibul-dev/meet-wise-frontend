@@ -4,8 +4,11 @@ import AlarmIcon from "@mui/icons-material/Alarm";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ForumIcon from "@mui/icons-material/Forum";
 import PeopleIcon from "@mui/icons-material/People";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import { useNavigate } from "react-router-dom";
 
 const SideMenubar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -25,10 +28,25 @@ const SideMenubar = () => {
           </Box>
           <Box sx={{ marginTop: "25px" }}>
             <Stack direction="column">
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  navigate("/peoples");
+                }}
+              >
+                <PersonAddIcon style={{ color: "white" }} />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  navigate("/friends");
+                }}
+              >
                 <PeopleIcon style={{ color: "white" }} />
               </IconButton>
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 <ForumIcon style={{ color: "white" }} />
               </IconButton>
             </Stack>
