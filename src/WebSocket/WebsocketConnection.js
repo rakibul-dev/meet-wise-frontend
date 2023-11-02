@@ -1,7 +1,9 @@
 import io from "socket.io-client";
 import { toast } from "react-toastify";
+import store from "../Redux/Store";
 
 import { CreateSocketClientInstance } from "./SocketContainer/SocketContainer";
+import { handleIncommingMsg } from "../Redux/Slices/MessageSlice";
 // import { OnlineUsers } from '../Redux/Slices/UserSlice.jsx'
 // import { store } from '../Redux/Store.jsx'
 
@@ -12,6 +14,7 @@ const CreateSocketServerConnection = (authtoken) => {
   socket = io("http://localhost:5000", { withCredentials: true });
 
   CreateSocketClientInstance(socket);
+
   socket.on("connect", () => {
     console.log("successfully connected with socket server.");
     console.log(socket.id);
@@ -36,6 +39,10 @@ const CreateSocketServerConnection = (authtoken) => {
   socket.on("message", (message) => {
     // Handle the received message
     console.log("Received message:", message);
+    store.dispatch({
+      type: "message/handleIncommingMsg",
+      payload: message.message,
+    });
   });
 
   // Online users
