@@ -1,15 +1,15 @@
-let socket
+let socket;
 
 export const CreateSocketClientInstance = (IoInstance) => {
-  socket = IoInstance
-  // console.log(socket)
-}
+  socket = IoInstance;
+  console.log({ socket });
+};
 
 export const GetSocketClientInstance = () => {
-  return socket
-}
+  return socket;
+};
 
 // export default {
 //   CreateSocketClientInstance,
 //   GetSocketClientInstance,
-// }
+// };
