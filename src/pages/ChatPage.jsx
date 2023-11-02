@@ -18,6 +18,9 @@ const ChatPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { messages } = useSelector((state) => state.messageSlice);
+  const { selectedConversation } = useSelector(
+    (state) => state.conversationSlice
+  );
   const { user } = useSelector((state) => state.userSlice);
   const messagesEndRef = useRef();
 
@@ -31,7 +34,7 @@ const ChatPage = () => {
       console.log("Unmounting FunctionalComponent");
       dispatch(removeMessages());
     };
-  }, []);
+  }, [dispatch, selectedConversation]);
 
   useEffect(() => {
     console.log("checking ref====>", messagesEndRef.current);
@@ -126,6 +129,7 @@ const ChatPage = () => {
               overflowY: "scroll",
               height: "100vh",
               width: "100%",
+              justifyContent: "flex-end",
             }}
             ref={messagesEndRef}
             gap={2}
