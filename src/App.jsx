@@ -22,29 +22,30 @@ function App() {
     CreateSocketServerConnection();
   }, []);
 
-  const socket = GetSocketClientInstance();
+//   const socket = GetSocketClientInstance();
 
-  if (socket) {
-    // Online Users
-    socket.on("friend-request", (data) => {
-      console.log("Online users =====>", data);
-      //   dispatch(OnlineUsers({ data: data }));
-    });
-    socket.on("message", (message) => {
-      // Handle the received message
-      console.log("Received message:", message);
-      dispatch(handleIncommingMsg(message.message));
-    });
-    // socket.on("online-users", (data) => {
-    //   // console.log('Online users =====>', data)
-    //   dispatch(OnlineUsers({ data: data }));
-    // });
+//   if (socket) {
+//     console.log("yes this is socket");
+//     // Online Users
+//     socket.on("friend-request", (data) => {
+//       console.log("Online users =====>", data);
+//       //   dispatch(OnlineUsers({ data: data }));
+//     });
+//     socket.on("message", (message) => {
+//       // Handle the received message
+//       //   console.log("Received message:", message);
+//       dispatch(handleIncommingMsg(message.message));
+//     });
+//     // socket.on("online-users", (data) => {
+//     //   // console.log('Online users =====>', data)
+//     //   dispatch(OnlineUsers({ data: data }));
+//     // });
 
-    // socket.on("incomming-messege", (data) => {
-    //   dispatch(InCommingMessege({ data: data }));
-    //   console.log(data);
-    // });
-  }
+//     // socket.on("incomming-messege", (data) => {
+//     //   dispatch(InCommingMessege({ data: data }));
+//     //   console.log(data);
+//     // });
+//   }
   return (
     <>
       <RouterProvider router={Router} />
