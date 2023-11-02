@@ -44,6 +44,7 @@ export const messageSlice = createSlice({
       state.messages.splice(0, state.messages.length);
     },
     handleIncommingMsg: (state, action) => {
+      console.log({ action });
       state.messages = [...state.messages, action.payload];
     },
   },
