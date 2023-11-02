@@ -1,7 +1,10 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getConversations } from "../../Redux/Slices/ConversationsSlice";
+import {
+  getConversations,
+  selectConversation,
+} from "../../Redux/Slices/ConversationsSlice";
 import { useNavigate } from "react-router-dom";
 
 const Conversation = () => {
@@ -31,6 +34,7 @@ const Conversation = () => {
           item.lastMessage ? (
             <Box
               onClick={() => {
+                dispatch(selectConversation(item._id));
                 navigate(
                   `/conversations/${item._id}/${findMessageReciver(
                     item.participants,
