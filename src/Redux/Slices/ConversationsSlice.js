@@ -4,6 +4,7 @@ import axios from "axios";
 
 const initialState = {
   conversations: [],
+  selectedConversation: null,
 };
 
 export const getConversations = createAsyncThunk(
@@ -41,7 +42,11 @@ export const createConversation = createAsyncThunk(
 export const conversationSlice = createSlice({
   name: "conversation",
   initialState,
-  reducers: {},
+  reducers: {
+    selectConversation: (state, action) => {
+      state.selectedConversation = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getConversations.fulfilled, (state, action) => {
       state.conversations = action.payload;
@@ -51,5 +56,5 @@ export const conversationSlice = createSlice({
     });
   },
 });
-
+export const { selectConversation } = conversationSlice.actions;
 export default conversationSlice.reducer;
