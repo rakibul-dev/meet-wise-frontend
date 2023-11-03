@@ -22,39 +22,43 @@ const SendMessage = () => {
     dispatch(
       sendMessage({ senderId: user._id, reciverId: reciverId, message })
     );
-    console.log({ senderId: user._id, reciverId: reciverId, message });
+    setMessage("");
   };
   return (
-    <div>
-      <Box sx={{ display: "flex", justifyContent: "center", padding: "10px" }}>
-        <TextField
-          variant="standard" // <== changed this
-          margin="normal"
-          required
-          fullWidth
-          //   id="phoneNumber"
-          //   name="phoneNumber"
-          //   autoComplete="phoneNumber"
-          onChange={(e) => setMessage(e.target.value)}
-          autoFocus
-          //   onChange={handlePhoneNumberChange}
-          placeholder="Type your message"
-          InputProps={{
-            endAdornment: (
-              <IconButton
-                color="primary"
-                onClick={() => {
-                  handleSendMessage();
-                }}
-              >
-                <SendIcon />
-              </IconButton>
-            ),
-            disableUnderline: true,
-          }}
-        />
-      </Box>
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        height: "10%",
+        padding: "10px",
+      }}
+    >
+      <TextField
+        variant="standard"
+        margin="normal"
+        required
+        fullWidth
+        onChange={(e) => setMessage(e.target.value)}
+        value={message}
+        autoFocus
+        //   onChange={handlePhoneNumberChange}
+        placeholder="Type your message"
+        InputProps={{
+          endAdornment: (
+            <IconButton
+              color="primary"
+              disabled={message === "" ? true : false}
+              onClick={() => {
+                handleSendMessage();
+              }}
+            >
+              <SendIcon />
+            </IconButton>
+          ),
+          disableUnderline: true,
+        }}
+      />
+    </Box>
   );
 };
 
